@@ -1,0 +1,33 @@
+<%= form_for(@vital) do |f| %>
+  <% if @vital.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vital.errors.count, "error") %> prohibited this vital from being saved:</h2>
+
+      <ul>
+      <% @vital.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Height %><br>
+    <%= f.text_field :Height %>
+  </div>
+  <div class="field">
+    <%= f.label :Weight %><br>
+    <%= f.text_field :Weight %>
+  </div>
+  <div class="field">
+    <%= f.label :HeadCircumference %><br>
+    <%= f.text_field :HeadCircumference %>
+  </div>
+  <div class="field">
+    <%= f.label :Date %><br>
+    <%= f.date_select :Date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

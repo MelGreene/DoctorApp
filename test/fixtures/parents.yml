@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ParentID: 1
+  PLastName: MyText
+  PFirstName: MyText
+  Email: MyText
+  Phone: 1
+
+two:
+  ParentID: 1
+  PLastName: MyText
+  PFirstName: MyText
+  Email: MyText
+  Phone: 1

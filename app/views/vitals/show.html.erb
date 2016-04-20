@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @vital.Height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @vital.Weight %>
+</p>
+
+<p>
+  <strong>HeadCircumference:</strong>
+  <%= @vital.HeadCircumference %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @vital.Date %>
+</p>
+
+<%= link_to 'Edit', edit_vital_path(@vital) %> |
+<%= link_to 'Back', vitals_path %>

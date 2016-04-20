@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ChildID:</strong>
+  <%= @child.ChildID %>
+</p>
+
+<p>
+  <strong>CLastName:</strong>
+  <%= @child.CLastName %>
+</p>
+
+<p>
+  <strong>CFirstName:</strong>
+  <%= @child.CFirstName %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @child.Age %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @child.Date %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @child.Notes %>
+</p>
+
+<%= link_to 'Edit', edit_child_path(@child) %> |
+<%= link_to 'Back', children_path %>
