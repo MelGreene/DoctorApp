@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
+ 
+  resources :children do
   resources :vitals
-  resources :children
   resources :parents
+end
+
+scope 'children/:child_id' do
+  resources :vitals
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'parents#index'
+   root 'children#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :ChildID %><br>
-    <%= f.number_field :ChildID %>
-  </div>
+  <!--edit child -->
   <div class="field">
     <%= f.label :CLastName %><br>
     <%= f.text_area :CLastName %>
@@ -39,3 +36,61 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<!--edit vitals -->
+<!--form links -->
+  <table>
+  <thead>
+    <tr>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>HeadCircumference</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+     
+    <% @child.vitals.each do |vital| %>
+      <tr>
+        <td><%= vital.Height %></td>
+        <td><%= vital.Weight %></td>
+        <td><%= vital.HeadCircumference %></td>
+        <td><%= vital.Date %></td>
+        <td><%= link_to 'Show', {:controller => "vital" , :action => "show", :id => vital.id} %></td>
+        <td><%= link_to 'Edit', {:controller => "vital" , :action => "edit", :id => vital.id} %></td>
+        <td><%= link_to 'Destroy', vital, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!--parent -->
+<table>
+  <thead>
+    <tr>
+      <th>PLastName</th>
+      <th>PFirstName</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @child.parents.each do |parent| %>
+      <tr>
+        <td><%= parent.PLastName %></td>
+        <td><%= parent.PFirstName %></td>
+        <td><%= parent.Email %></td>
+        <td><%= parent.Phone %></td>
+        <td><%= link_to 'Show', parent %></td>
+        <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
+        <td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

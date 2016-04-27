@@ -1,10 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>ChildID:</strong>
-  <%= @child.ChildID %>
-</p>
-
+<!--show child -->
 <p>
   <strong>CLastName:</strong>
   <%= @child.CLastName %>
@@ -29,6 +25,104 @@
   <strong>Notes:</strong>
   <%= @child.Notes %>
 </p>
+
+<!--Show vital -->
+<h2>Vital</h2>
+
+<% @child.vitals.each do |vital| %>
+  <p> 
+    <strong>Height</strong> 
+    <%= vital.Height %>
+  </p>
+  <p> 
+    <strong>Weight</strong> 
+    <%= vital.Weight %>
+  </p>
+  <p> 
+    <strong>Head Circumference</strong> 
+    <%= vital.HeadCircumference %>
+  </p> 
+  <p> 
+    <strong>Date</strong> 
+    <%= vital.Date %>
+  </p>
+<% end %>
+
+<!--adding form for vitals -->
+
+<h2> Add Vitals </h2> 
+
+<%= form_for([@child, @child.vitals.build]) do |f| %>
+  <p> 
+    <%= f.label :Height %><br>
+    <%= f.number_field :Height %>
+  </p>
+  <p> 
+    <%= f.label :Weight %><br>
+    <%= f.number_field :Weight %>
+  </p>
+  <p> 
+    <%= f.label :HeadCircumference %><br>
+    <%= f.number_field :HeadCircumference %>
+  </p>
+  <p> 
+    <%= f.label :Date %><br>
+    <%= f.date_field :Date %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<!--show parent -->
+<h2>Parent</h2>
+
+<% @child.parents.each do |parent| %>
+  <p> 
+    <strong>PLastName</strong> 
+    <%= parent.PLastName %>
+  </p>
+  <p> 
+    <strong>PFirstName</strong> 
+    <%= parent.PFirstName %>
+  </p>
+  <p> 
+    <strong>Email</strong> 
+    <%= parent.Email %>
+  </p> 
+  <p> 
+    <strong>Phone</strong> 
+    <%= parent.Phone %>
+  </p>
+ <% end %>
+
+<!--adding form for parents -->
+
+<h2> Add Parents </h2> 
+
+<%= form_for([@child, @child.parents.build]) do |f| %>
+  <p> 
+    <%= f.label :PLastName %><br>
+    <%= f.text_field :PLastName %>
+  </p>
+  <p> 
+    <%= f.label :PFirstName %><br>
+    <%= f.text_field :PFirstName %>
+  </p>
+  <p> 
+    <%= f.label :Email %><br>
+    <%= f.text_field :Email %>
+  </p>
+  <p> 
+    <%= f.label :Phone %><br>
+    <%= f.telephone_field :Phone %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_child_path(@child) %> |
 <%= link_to 'Back', children_path %>

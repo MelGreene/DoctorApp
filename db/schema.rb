@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419033239) do
+ActiveRecord::Schema.define(version: 20160425191001) do
 
   create_table "children", force: :cascade do |t|
-    t.integer  "ChildID"
     t.text     "CLastName"
     t.text     "CFirstName"
     t.text     "Age"
@@ -32,7 +31,10 @@ ActiveRecord::Schema.define(version: 20160419033239) do
     t.integer  "Phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "child_id"
   end
+
+  add_index "parents", ["child_id"], name: "index_parents_on_child_id"
 
   create_table "vitals", force: :cascade do |t|
     t.decimal  "Height"
@@ -41,6 +43,9 @@ ActiveRecord::Schema.define(version: 20160419033239) do
     t.date     "Date"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "child_id"
   end
+
+  add_index "vitals", ["child_id"], name: "index_vitals_on_child_id"
 
 end
