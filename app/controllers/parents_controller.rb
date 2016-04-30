@@ -6,6 +6,7 @@ class ParentsController < ApplicationController
   end 
 
   def edit
+    @parent = Parent.find(params[:id])
   end
   def show
   end

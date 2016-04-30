@@ -1,4 +1,4 @@
-<%= form_for(@vital) do |f| %>
+<%= form_for([@child, @vital]) do |f| %>
   <% if @vital.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vital.errors.count, "error") %> prohibited this vital from being saved:</h2>

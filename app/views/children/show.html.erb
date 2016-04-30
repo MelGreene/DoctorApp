@@ -26,6 +26,7 @@
   <%= @child.Notes %>
 </p>
 
+
 <!--Show vital -->
 <h2>Vital</h2>
 
@@ -46,6 +47,8 @@
     <strong>Date</strong> 
     <%= vital.Date %>
   </p>
+  <%= link_to 'Edit', edit_child_vital_path(@child, vital ) %>
+    <%= link_to 'Destroy', child_vital_path(:child_id => @child.id, :vital => vital.id, :id => vital.id ), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <!--adding form for vitals -->
@@ -95,6 +98,8 @@
     <strong>Phone</strong> 
     <%= parent.Phone %>
   </p>
+  <%= link_to 'Edit', edit_child_parent_path(:child_id => @child.id, :id => parent.id, :parent => parent.id ) %>
+    <%= link_to 'Destroy', child_parent_path(:child_id => @child.id, :id => parent.id, :parent => parent.id ), method: :delete, data: { confirm: 'Are you sure?' } %>
  <% end %>
 
 <!--adding form for parents -->

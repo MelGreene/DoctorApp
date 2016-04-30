@@ -10,10 +10,12 @@ def show
     @vital = Vital.find(params[:id])
 end
 
-  def update 
-  end
+def update 
+end
 
   def edit
+    @vital = Vital.find(params[:id])
+    @child = Child.find(params[:id])
   end
 
   private 
