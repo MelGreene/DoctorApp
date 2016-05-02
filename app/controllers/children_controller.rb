@@ -1,6 +1,9 @@
 class ChildrenController < ApplicationController
   before_action :set_child, only: [:show, :edit, :update, :destroy]
 
+  #set authentication
+  http_basic_authenticate_with name: "admin", password: "password"
+
   # GET /children
   # GET /children.json
   def index

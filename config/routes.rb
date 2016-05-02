@@ -10,11 +10,7 @@ scope 'children/:child_id' do
   resources :parents
 end
 
-#for graph
-Rails.application.routes.draw do
-  get 'graph/index'
-  get 'graph/data', :defaults => { :format => 'json' }
-end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

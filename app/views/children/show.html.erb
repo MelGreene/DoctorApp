@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <!--show child -->
+<h2>Child </h2>
 <p>
-  <strong>CLastName:</strong>
+  <strong>LastName:</strong>
   <%= @child.CLastName %>
 </p>
 
 <p>
-  <strong>CFirstName:</strong>
+  <strong>FirstName:</strong>
   <%= @child.CFirstName %>
 </p>
 
@@ -28,7 +29,7 @@
 
 
 <!--Show vital -->
-<h2>Vital</h2>
+<h2>Vitals</h2>
 
 <% @child.vitals.each do |vital| %>
   <p> 
@@ -47,9 +48,35 @@
     <strong>Date</strong> 
     <%= vital.Date %>
   </p>
-  <%= link_to 'Edit', edit_child_vital_path(@child, vital ) %>
+  <%= link_to 'Edit', edit_child_vital_path(:child_id => @child.id, :vital => vital.id, :id => vital.id) %>
     <%= link_to 'Destroy', child_vital_path(:child_id => @child.id, :vital => vital.id, :id => vital.id ), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
+
+
+<!--show parent -->
+<h2>Parent</h2>
+
+<% @child.parents.each do |parent| %>
+  <p> 
+    <strong>LastName:</strong> 
+    <%= parent.PLastName %>
+  </p>
+  <p> 
+    <strong>FirstName:</strong> 
+    <%= parent.PFirstName %>
+  </p>
+  <p> 
+    <strong>Email:</strong> 
+    <%= parent.Email %>
+  </p> 
+  <p> 
+    <strong>Phone:</strong> 
+    <%= parent.Phone %>
+  </p>
+<%= link_to 'Edit', edit_child_parent_path(:child_id => @child.id, :parent => parent.id, :id => parent.id) %>
+    <%= link_to 'Destroy', child_parent_path(:child_id => @child.id, :parent => parent.id, :id => parent.id ), method: :delete, data: { confirm: 'Are you sure?' } %>
+ <% end %>
+
 
 <!--adding form for vitals -->
 
@@ -77,30 +104,6 @@
   </p>
 <% end %>
 
-
-<!--show parent -->
-<h2>Parent</h2>
-
-<% @child.parents.each do |parent| %>
-  <p> 
-    <strong>PLastName</strong> 
-    <%= parent.PLastName %>
-  </p>
-  <p> 
-    <strong>PFirstName</strong> 
-    <%= parent.PFirstName %>
-  </p>
-  <p> 
-    <strong>Email</strong> 
-    <%= parent.Email %>
-  </p> 
-  <p> 
-    <strong>Phone</strong> 
-    <%= parent.Phone %>
-  </p>
-  <%= link_to 'Edit', edit_child_parent_path(:child_id => @child.id, :id => parent.id, :parent => parent.id ) %>
-    <%= link_to 'Destroy', child_parent_path(:child_id => @child.id, :id => parent.id, :parent => parent.id ), method: :delete, data: { confirm: 'Are you sure?' } %>
- <% end %>
 
 <!--adding form for parents -->
 

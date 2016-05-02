@@ -23,3 +23,21 @@ h1{
 
 	color: white;
 }
+
+h2{
+	color:white;
+	text-align:left;
+}
+
+.baby
+{
+	position: absolute;
+	right: 300px;
+	width: 250px;
+}
+
+.cool{
+	height: 200px;
+	width: 150px;
+	
+}

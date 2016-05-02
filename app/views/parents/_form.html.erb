@@ -1,4 +1,4 @@
-<%= form_for(@parent) do |f| %>
+<%= form_for("parent", :url => child_parent_path, :html => { :method => :patch }, :child_id => @child.id) do |f| %>
   <% if @parent.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@parent.errors.count, "error") %> prohibited this parent from being saved:</h2>
